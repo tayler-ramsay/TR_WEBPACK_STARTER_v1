@@ -1,102 +1,117 @@
-@charset "UTF-8";
-.widget select,
-.no-widget .select {
-  /* This CSS selector basically says:
- - either we have set the body class to "widget" and thus we hide the actual <select> element
- - or we have not changed the body class, therefore the body class is still "no-widget",
-   so the elements whose class is "select" must be hidden */
-  position: absolute;
-  left: -5000em;
-  height: 0;
-  overflow: hidden; }
-
-.select {
-  font-size: 0.625em;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif -moz-box-sizing;
+html {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  /* This will create a positioning context for the list of options */
-  position: relative;
-  /* This will make our widget become part of the text flow and sizable at the same time */
-  display: inline-block;
-  padding: .1em 2.5em .2em .5em;
-  width: 10em;
-  border: .2em solid #000;
-  border-radius: .4em;
-  -webkit-box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.45);
-          box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.45);
-  background: #f0f0f0;
-  background: -webkit-gradient(linear, left bottom, left top, from(#e3e3e3), color-stop(50%, #fcfcfc), to(#f0f0f0));
-  background: linear-gradient(0deg, #e3e3e3, #fcfcfc 50%, #f0f0f0); }
+          box-sizing: border-box; }
 
-.select .active,
-.select:focus {
-  outline: none;
-  /* This box-shadow property is not exactly required, however it's so important to be sure
- the active state is visible that we use it as a default value, feel free to override it. */
-  -webkit-box-shadow: 0 0 3px 1px #227755;
-          box-shadow: 0 0 3px 1px #227755; }
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; }
 
-/* The .select selector here is syntactic sugar to be sure the classes we define are
-the ones inside our widget. */
-.select .optList {
-  /* This will make sure our list of options will be displayed below the value
- and out of the HTML flow */
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 2;
-  list-style: none;
+body {
+  margin: 0; }
+
+/* Responsive Images */
+embed,
+iframe,
+img,
+object,
+video {
+  max-width: 100%; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p,
+pre,
+blockquote,
+figure,
+hr {
   margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  min-width: 100%;
-  max-height: 10em;
-  overflow-y: auto;
-  overflow-x: hidden;
-  border: .2em solid #000;
-  border-top-width: .1em;
-  border-radius: 0 0 0.4em rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.4);
-          box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.4);
-  background: #f0f0f0; }
+  padding-right: 0;
+  padding-left: 0; }
 
-.select .optList.hidden {
-  /* This is a simple way to hide the list in an accessible way,
- we will talk more about accessibility in the end */
-  max-height: 0;
-  visibility: hidden; }
+a {
+  text-decoration: none; }
 
-.select .option {
-  padding: .2em .3em; }
+a:focus {
+  outline: none; }
 
-.select .highlight {
-  background: #000;
-  color: #fff; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: block; }
 
-.select .value {
-  display: inline-block;
-  width: 100%;
-  overflow: hidden;
-  vertical-align: top;
-  white-space: nowrap;
-  text-overflow: ellipsis; }
+/* Removes all decimals and discs from lists */
+ol,
+ul {
+  list-style: none; }
 
-.select:after {
-  content: "▼";
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  height: 100%;
-  width: 2em;
-  padding-top: .1em;
-  border-left: .2em solid #000;
-  border-radius: 0 .1em .1em 0;
-  background-color: #000;
-  color: #fff;
-  text-align: center; }
+/* 
+   * Completely resets form items
+   * ----------------------------
+   * Super hard reset that removes all borders
+   * and radiuses of all form items (including
+   * checkboxes and radios)
+   */
+input,
+textarea,
+button {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  text-align: left; }
+
+input:hover,
+input:active,
+input:focus,
+textarea:hover,
+textarea:active,
+textarea:focus,
+button:hover,
+button:active,
+button:focus {
+  outline: none; }
+
+:root {
+  font-family: Helvetica, Arial, sans-serif; }
+
+html {
+  font-size: 175%;
+  font-weight: 300;
+  line-height: 1.3; }
+
+body {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: linear-gradient(236deg, #8dec89, #c430c4);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+#app {
+  max-width: 90em; }
+  #app .heading {
+    color: #e8f5da; }
 
