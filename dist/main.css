@@ -1,0 +1,102 @@
+@charset "UTF-8";
+.widget select,
+.no-widget .select {
+  /* This CSS selector basically says:
+ - either we have set the body class to "widget" and thus we hide the actual <select> element
+ - or we have not changed the body class, therefore the body class is still "no-widget",
+   so the elements whose class is "select" must be hidden */
+  position: absolute;
+  left: -5000em;
+  height: 0;
+  overflow: hidden; }
+
+.select {
+  font-size: 0.625em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif -moz-box-sizing;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /* This will create a positioning context for the list of options */
+  position: relative;
+  /* This will make our widget become part of the text flow and sizable at the same time */
+  display: inline-block;
+  padding: .1em 2.5em .2em .5em;
+  width: 10em;
+  border: .2em solid #000;
+  border-radius: .4em;
+  -webkit-box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.45);
+          box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.45);
+  background: #f0f0f0;
+  background: -webkit-gradient(linear, left bottom, left top, from(#e3e3e3), color-stop(50%, #fcfcfc), to(#f0f0f0));
+  background: linear-gradient(0deg, #e3e3e3, #fcfcfc 50%, #f0f0f0); }
+
+.select .active,
+.select:focus {
+  outline: none;
+  /* This box-shadow property is not exactly required, however it's so important to be sure
+ the active state is visible that we use it as a default value, feel free to override it. */
+  -webkit-box-shadow: 0 0 3px 1px #227755;
+          box-shadow: 0 0 3px 1px #227755; }
+
+/* The .select selector here is syntactic sugar to be sure the classes we define are
+the ones inside our widget. */
+.select .optList {
+  /* This will make sure our list of options will be displayed below the value
+ and out of the HTML flow */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 2;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-width: 100%;
+  max-height: 10em;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: .2em solid #000;
+  border-top-width: .1em;
+  border-radius: 0 0 0.4em rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.4);
+  background: #f0f0f0; }
+
+.select .optList.hidden {
+  /* This is a simple way to hide the list in an accessible way,
+ we will talk more about accessibility in the end */
+  max-height: 0;
+  visibility: hidden; }
+
+.select .option {
+  padding: .2em .3em; }
+
+.select .highlight {
+  background: #000;
+  color: #fff; }
+
+.select .value {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  vertical-align: top;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.select:after {
+  content: "▼";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%;
+  width: 2em;
+  padding-top: .1em;
+  border-left: .2em solid #000;
+  border-radius: 0 .1em .1em 0;
+  background-color: #000;
+  color: #fff;
+  text-align: center; }
+
